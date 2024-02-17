@@ -206,10 +206,10 @@ namespace
 	private:
 		void ExtractRandValues() noexcept
 		{
-			std::string val;
-			size_t it = 0;
 			if (!m_key.empty())
 			{
+				std::string val;
+				size_t it = 0;
 				while (isdigit(m_key[it]))
 				{
 					val.push_back(m_key[it++]);
