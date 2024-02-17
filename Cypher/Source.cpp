@@ -221,15 +221,14 @@ namespace
 		};
 		void ExtractShiftValues() noexcept 
 		{
-			std::string val;
-			size_t it = 0;
 			if (!m_key.empty())
 			{
+				std::string val;
+				size_t it = 0;
 				while (isdigit(m_key[it]))
 				{
 					val.push_back(m_key[it++]);
 				}
-
 				m_shiftValues = atol(m_key.c_str());
 				m_key = m_key.substr(val.size() + 1, m_key.size());
 			}
