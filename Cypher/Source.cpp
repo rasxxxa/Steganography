@@ -40,7 +40,7 @@ namespace
 			return matrix[index];
 		}
 
-		void PrintMatrix() const noexcept
+		[[maybe_unused]]void PrintMatrix() const noexcept
 		{
 			for (const auto& i : matrix)
 			{
@@ -153,7 +153,7 @@ namespace
 							{
 								factorDivided[l] = messageLength[l + k * 8];
 							}
-							matrix[i][j][k] = factorDivided.to_ullong();
+							matrix[i][j][k] = static_cast<size_t>(factorDivided.to_ulong());
                         }
 						continue;
 					}
@@ -180,7 +180,7 @@ namespace
 							}
 						}
 
-						matrix[i][j][k] = (cryptBytes == 2) ? twoBytesUse.to_ulong() : fourBytesUse.to_ullong();
+						matrix[i][j][k] = static_cast<size_t>((cryptBytes == 2) ? twoBytesUse.to_ulong() : fourBytesUse.to_ullong());
 						if (nextByte >= 8)
 						{
 							nextByte = 0;
